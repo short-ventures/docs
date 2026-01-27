@@ -29,7 +29,6 @@
             "group": "Getting Started",
             "pages": [
               "getting-started/welcome",
-              "getting-started/quickstart",
               "getting-started/common-questions"
             ]
           }
