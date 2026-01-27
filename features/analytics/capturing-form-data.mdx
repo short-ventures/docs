@@ -3,20 +3,15 @@ title: Capturing Form Data
 description: Collect and manage form submissions from your landing pages
 ---
 
-# Capturing Form Data
-
 Blox automatically captures form submissions from your landing pages. When visitors fill out forms, their responses are stored and available for review, export, and integration with your other tools.
 
 ## How form capture works
 
 When a visitor submits a form on your landing page:
 
-1. Blox intercepts the form submission
+1. Blox detects the form submission
 2. Form field values are collected and labeled
-3. Data is sent to your Blox dashboard
-4. The form can still redirect or show a confirmation as designed
-
-This happens automatically—you don't need to add any code or configure endpoints.
+3. Data is sent to your Blox 'Analytics' panel
 
 ## What gets captured
 
@@ -26,18 +21,6 @@ For each form submission, Blox records:
 - **Field values**: All visible input fields with their labels and values
 - **Visitor information**: Visitor ID, session ID, and variant
 - **Context**: Country, timestamp, and referrer
-
-Hidden fields are excluded except for Blox metadata fields used for attribution.
-
-## Field labeling
-
-Blox intelligently labels form fields by looking for:
-
-1. Associated `<label>` elements
-2. Placeholder text
-3. Input name or ID attributes
-
-This means your form data is readable and organized, not just raw field names.
 
 ## Viewing submissions
 
@@ -49,14 +32,6 @@ To view form submissions:
 4. Choose a form to see its submissions
 
 Each submission shows all captured fields with their values, plus metadata like timestamp and visitor ID.
-
-## Filtering submissions
-
-Filter form data by:
-
-- **Date range**: View submissions from a specific period
-- **Variant**: See submissions from a specific page variant
-- **Form**: Filter to a particular form if your page has multiple
 
 ## Exporting data
 
@@ -102,32 +77,3 @@ You're responsible for:
 - Complying with privacy regulations (GDPR, CCPA, etc.)
 - Having appropriate consent mechanisms on your forms
 - Deleting data when requested by visitors
-
-## Redirecting after submission
-
-If your form is designed to redirect visitors after submission:
-
-1. Include a hidden field named `__blox_redirect` with the destination URL
-2. After Blox captures the data, visitors are redirected to that URL
-
-This lets you send visitors to thank-you pages or external systems while still capturing the data in Blox.
-
-## Troubleshooting
-
-### Form submissions not appearing
-
-- Verify the page is published
-- Check that the form has a submit button (not just JavaScript submission)
-- Ensure the form isn't blocked by browser extensions
-
-### Missing fields
-
-- Fields must be visible (not `type="hidden"`)
-- Empty fields are captured but may not display
-- Check that fields have proper labels or names
-
-### Duplicate submissions
-
-- Blox includes basic debouncing (2-second window)
-- Rapid re-submissions may still be captured
-- Consider adding client-side validation to prevent accidental double-submits
