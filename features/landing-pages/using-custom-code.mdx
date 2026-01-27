@@ -1,0 +1,126 @@
+---
+title: Using Custom Code
+description: Add custom scripts and styles to your landing pages
+---
+
+# Using Custom Code
+
+Sometimes you need to add custom HTML, CSS, or JavaScript to your pages. Blox lets you inject custom code blocks that apply to all published pages on your brand.
+
+## When to use custom code
+
+Common use cases include:
+
+- Adding analytics scripts (beyond GA4/GTM)
+- Installing chat widgets (Intercom, Zendesk, Drift)
+- Adding cookie consent banners
+- Loading custom fonts
+- Inserting meta tags for SEO
+- Adding conversion tracking pixels
+- Custom event listeners
+
+## Adding a custom code block
+
+1. Open the settings panel for your brand
+2. Navigate to the **Code** section
+3. Click **Add custom code**
+4. Fill in the details:
+   - **Name**: A descriptive name (e.g., "Facebook Pixel")
+   - **Placement**: Where in the document to inject the code
+   - **Code**: Your HTML, CSS, or JavaScript
+5. Save the code block
+
+## Placement options
+
+You can choose where your code appears in the page:
+
+| Placement | Location | Best for |
+|-----------|----------|----------|
+| Start of head | Top of `<head>` | Meta tags, preload hints |
+| End of head | Bottom of `<head>` | Stylesheets, fonts |
+| Start of body | Top of `<body>` | Scripts that need early execution |
+| End of body | Bottom of `<body>` | Analytics, widgets, tracking pixels |
+
+Most third-party scripts recommend placement at the end of body to avoid blocking page rendering.
+
+## Managing code blocks
+
+### Enable/disable
+
+Each code block has a toggle to enable or disable it. Disabled code blocks are not injected into published pages. This is useful for:
+
+- Temporarily removing a script without deleting it
+- Testing pages with and without certain code
+- Seasonal tracking codes
+
+### Editing
+
+Click on a code block to edit its name, placement, or content. Changes apply to all pages after you republish.
+
+### Deleting
+
+Remove code blocks you no longer need. This action requires confirmation since it affects all published pages.
+
+## How it works
+
+Custom code blocks are stored at the brand level. When you publish any page:
+
+1. Blox collects all enabled custom code blocks
+2. Code is injected at the specified placements
+3. The assembled page is deployed
+
+All pages on your brand include the same custom code. To have different code on different pages, consider using conditional logic within your scripts.
+
+## Examples
+
+### Facebook Pixel
+
+```html
+<!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', 'YOUR_PIXEL_ID');
+  fbq('track', 'PageView');
+</script>
+```
+
+**Placement**: End of body
+
+### Custom font
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+```
+
+**Placement**: End of head
+
+### Cookie consent banner
+
+```html
+<script src="https://cdn.cookieconsent.com/script.js"></script>
+<script>
+  window.cookieconsent.initialise({
+    palette: { popup: { background: "#000" }, button: { background: "#fff" } },
+    content: { message: "This website uses cookies to ensure you get the best experience." }
+  });
+</script>
+```
+
+**Placement**: End of body
+
+## Best practices
+
+- **Test before publishing**: Verify your code works correctly in preview
+- **Use descriptive names**: Make it easy to identify what each code block does
+- **Keep code minimal**: Only add what you need to avoid slowing down pages
+- **Consider loading order**: Place critical code earlier if needed
+- **Document external dependencies**: Note which third-party services your code connects to

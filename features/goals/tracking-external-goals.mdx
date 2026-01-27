@@ -1,0 +1,158 @@
+---
+title: Tracking External Goals
+description: Track conversions that happen outside your landing pages
+---
+
+# Tracking External Goals
+
+Sometimes the conversion you care about happens after visitors leave your landing page—like completing a purchase on your main website or signing up in your app. External goals let you track these conversions and attribute them back to your landing page variants.
+
+## How external tracking works
+
+1. A visitor lands on your Blox landing page
+2. Blox sets cookies with the visitor's ID, session, and variant
+3. The visitor clicks through to your website
+4. Your website triggers the external conversion
+5. The conversion is attributed to the original landing page variant
+
+This connection allows you to measure which landing page variant drives the most downstream conversions.
+
+## Setting up external goals
+
+### Step 1: Create the goal
+
+1. Open your brand settings
+2. Navigate to the **Goals** section
+3. Click **Create goal**
+4. Select **External** as the goal type
+5. Enter a name (e.g., "Purchase completed")
+6. Enter an event name (e.g., "purchase")
+7. Save the goal
+
+### Step 2: Get the tracking code
+
+After saving, Blox provides a tracking code snippet. It looks like this:
+
+```html
+<script src="https://blox.page/track.js" data-brand="your-brand-slug"></script>
+<script>
+  blox('track', 'purchase');
+</script>
+```
+
+### Step 3: Add to your website
+
+Add the tracking script to the page where conversions happen (e.g., your order confirmation page):
+
+1. Copy the script snippet
+2. Add it to your confirmation page's HTML
+3. Deploy your website changes
+
+The script automatically reads the visitor's Blox cookies and sends the conversion.
+
+## Tracking with values
+
+You can include additional data with your conversion:
+
+```javascript
+blox('track', 'purchase', { value: 99.99 });
+```
+
+Or with more details:
+
+```javascript
+blox('track', 'purchase', {
+  value: 99.99,
+  order_id: '12345',
+  product: 'Pro Plan'
+});
+```
+
+This data is stored with the conversion for reporting.
+
+## Cookie requirements
+
+External tracking relies on cookies set when the visitor was on your landing page:
+
+- `blox_vid`: Visitor ID (persists for 1 year)
+- `blox_sid`: Session ID
+- `blox_var`: The variant they saw
+- `blox_exp`: The experiment they're part of (if any)
+
+For cookies to work across domains:
+
+- Both domains should share a common parent domain (e.g., `landing.example.com` and `shop.example.com`)
+- Use a custom domain on Blox that shares this parent domain
+- Cookies are scoped to the registrable domain for cross-subdomain sharing
+
+If your landing page is on `landing.example.com` and conversions happen on `www.example.com`, cookies will be readable because both share `.example.com`.
+
+## Deduplication
+
+External conversions are deduplicated per visitor per goal:
+
+- First conversion is recorded
+- Subsequent conversions from the same visitor are ignored
+- A 24-hour client-side cookie prevents duplicate beacon sends
+
+This ensures each visitor is counted only once per goal.
+
+## Verifying your setup
+
+To test external tracking:
+
+1. Visit your landing page (creates the cookies)
+2. Navigate to your conversion page
+3. Check that the tracking script fires (browser dev tools, Network tab)
+4. Verify the conversion appears in Blox
+
+You may need to wait a moment for the conversion to process.
+
+## Using in experiments
+
+External goals work in experiments just like behavioral goals:
+
+1. Create your experiment
+2. Add the external goal as primary or secondary
+3. Start the experiment
+
+Conversions are attributed to whichever variant the visitor saw, letting you measure which variant drives more purchases, signups, or other downstream actions.
+
+## Troubleshooting
+
+### Conversions not tracking
+
+- Verify the tracking script is on your conversion page
+- Check that Blox cookies exist (visitor must have visited the landing page first)
+- Ensure the event name matches your goal configuration
+- Look for JavaScript errors in the browser console
+
+### Cookie issues
+
+- Confirm your custom domain shares a parent domain with your conversion page
+- Check that cookies aren't being blocked by browser settings or extensions
+- Verify your site isn't explicitly clearing or blocking third-party cookies
+
+### Attribution mismatch
+
+- Conversions are attributed to the variant seen at cookie-creation time
+- If a visitor sees multiple variants (cleared cookies, different devices), only the most recent visit's variant is tracked
+- Cross-device tracking is not supported
+
+## Privacy considerations
+
+External tracking uses first-party cookies scoped to your domain. However:
+
+- Inform visitors about tracking in your privacy policy
+- Consider cookie consent requirements for your region
+- The tracking script doesn't collect personal information beyond what you explicitly pass
+
+## Data sanitization
+
+Blox sanitizes data passed in external conversions:
+
+- Payloads over 10KB are rejected
+- Strings longer than 500 characters are truncated
+- Common PII field names (password, ssn, credit_card) are filtered out
+
+Avoid passing sensitive personal information in conversion data.

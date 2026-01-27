@@ -1,0 +1,133 @@
+---
+title: Best Practices
+description: Tips for running effective A/B tests with Blox
+---
+
+# Best Practices
+
+Running effective experiments requires more than just splitting traffic. Follow these guidelines to get reliable, actionable results from your A/B tests.
+
+## Test one thing at a time
+
+The clearest experiments test a single change:
+
+- **Good**: Testing a new headline against the current one
+- **Less clear**: Testing a new headline, different button color, and new layout together
+
+When you change multiple elements, you can't know which change caused the difference in performance. If you need to test bigger changes, frame them as testing two complete approaches rather than trying to attribute results to individual elements.
+
+## Start with a hypothesis
+
+Before creating an experiment, write down:
+
+1. **What you're changing**: "We're testing a shorter headline"
+2. **What you expect**: "We expect higher engagement because it's easier to read"
+3. **How you'll measure**: "We'll track form submissions as the primary goal"
+
+This keeps you focused and helps interpret results. Record your hypothesis in the experiment's hypothesis field.
+
+## Choose the right goal
+
+Your primary goal should directly measure what you're trying to improve:
+
+| Testing | Good primary goal |
+|---------|------------------|
+| Headline copy | Form submissions or link clicks |
+| Page layout | Scroll depth or time on page |
+| Call-to-action | Button clicks or form submissions |
+| Overall conversion | Form submissions or external purchases |
+
+Secondary goals provide additional context but shouldn't distract from the main question.
+
+## Wait for enough data
+
+Reliable results need:
+
+- **At least 100 visitors per variant**: Smaller samples are too noisy
+- **At least 14 days**: Captures weekly patterns in traffic
+- **95% probability threshold**: Indicates statistical significance
+
+Ending experiments too early leads to false conclusions. If traffic is low, extend the duration or combine with higher-traffic pages.
+
+## Avoid peeking and stopping early
+
+Checking results frequently and stopping when something "looks" significant leads to false positives. Instead:
+
+- Set your end condition upfront (significance or duration)
+- Enable auto-complete if you trust the statistical thresholds
+- Resist the urge to stop early when one variant is ahead
+
+Early leads often reverse as more data comes in.
+
+## Watch for integrity warnings
+
+Blox alerts you to events that could affect data quality:
+
+### Variant republished during experiment
+
+If you edit and republish a variant while the experiment is running, the data before and after the change isn't comparable. The warning notes when this happened.
+
+**Best practice**: Avoid editing variants during experiments. If you must make changes, consider restarting the experiment.
+
+### Experiment paused
+
+Pausing creates a gap in data collection and can introduce bias if the pause happened during unusual traffic patterns.
+
+**Best practice**: Minimize pauses. If you need to pause, note why and consider whether results are still valid.
+
+## Traffic allocation
+
+Equal splits (50/50 for two variants) maximize statistical power. Unequal splits are useful when:
+
+- You want to minimize exposure to a risky change (e.g., 90/10)
+- You're confident in a change and want most visitors to see it
+
+More even splits reach significance faster.
+
+## Document your experiments
+
+Keep records of:
+
+- What you tested and why
+- The results and statistical confidence
+- What action you took (implemented winner, ran follow-up test, etc.)
+- Learnings for future experiments
+
+This builds institutional knowledge and prevents repeating failed tests.
+
+## Sequential testing
+
+If your first experiment isn't conclusive:
+
+1. Analyze why (not enough traffic, too small a change, wrong goal)
+2. Form a new hypothesis based on learnings
+3. Create a new experiment with refined variants
+
+Small, iterative improvements often outperform attempts to find one big winner.
+
+## When to trust results
+
+High confidence in results comes from:
+
+- Large sample sizes (hundreds or thousands of visitors per variant)
+- Consistent performance over time (not just a spike)
+- Results that align with your hypothesis
+- Meaningful effect sizes (not just statistically significant but practically important)
+
+Low confidence suggests:
+
+- Small sample sizes
+- Erratic performance over time
+- Results that contradict your hypothesis without explanation
+- Very small effect sizes that may not matter in practice
+
+## After the experiment
+
+When you have a winner:
+
+1. Set it as the default variant
+2. Archive or remove losing variants
+3. Document what you learned
+4. Plan your next experiment
+
+Continuous testing leads to compounding improvements over time.

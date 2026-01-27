@@ -1,87 +1,103 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Blox Documentation",
+  "appearance": {
+    "default": "dark"
+  },
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#21201C",
+    "light": "#FDFCFB",
+    "dark": "#21201C"
+  },
+  "background": {
+    "color": {
+      "light": "#FDFCFB",
+      "dark": "#21201C"
+    }
+  },
+  "fonts": {
+    "family": "Geist"
   },
   "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Getting Started",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Getting Started",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
-            ]
-          },
-          {
-            "group": "Customization",
-            "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "getting-started/welcome",
+              "getting-started/quickstart",
+              "getting-started/common-questions"
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "Features",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Branding",
             "pages": [
-              "api-reference/introduction"
+              "features/branding/learning-your-brand"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "Landing Pages",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "features/landing-pages/agent-prompting",
+              "features/landing-pages/edit-mode",
+              "features/landing-pages/adding-media",
+              "features/landing-pages/using-custom-code"
+            ]
+          },
+          {
+            "group": "Variants",
+            "pages": [
+              "features/variants/working-with-variants",
+              "features/variants/managing-variants"
+            ]
+          },
+          {
+            "group": "Publishing",
+            "pages": [
+              "features/publishing/deploying-pages",
+              "features/publishing/custom-domains"
+            ]
+          },
+          {
+            "group": "Experiment",
+            "pages": [
+              "features/experiment/running-experiments",
+              "features/experiment/best-practices"
+            ]
+          },
+          {
+            "group": "Analytics",
+            "pages": [
+              "features/analytics/capturing-form-data",
+              "features/analytics/connecting-google-analytics",
+              "features/analytics/traffic-analytics"
+            ]
+          },
+          {
+            "group": "Goals",
+            "pages": [
+              "features/goals/managing-goals",
+              "features/goals/tracking-external-goals"
             ]
           }
         ]
+      },
+      {
+        "tab": "Changelog",
+        "pages": [
+          "changelog"
+        ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
+    ]
   },
   "logo": {
     "light": "/logo/light.svg",
@@ -91,14 +107,13 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:hello@withblox.com"
+      },
+      {
+        "label": "Dashboard",
+        "href": "https://app.withblox.com"
       }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
-    }
+    ]
   },
   "contextual": {
     "options": [

@@ -1,0 +1,124 @@
+---
+title: Custom Domains
+description: Connect your own domain to your Blox landing pages
+---
+
+# Custom Domains
+
+By default, your pages are available at `yourbrand.blox.page`. You can connect a custom domain to serve pages from your own URL, like `landing.yourcompany.com`.
+
+## Adding a custom domain
+
+1. Open your brand settings
+2. Navigate to the **Domains** section
+3. Enter your domain (e.g., `landing.yourcompany.com`)
+4. Click **Add**
+
+Blox registers the domain and provides DNS configuration instructions.
+
+<Note>
+Each brand can have one custom domain. All pages on the brand share this domain.
+</Note>
+
+## Configuring DNS
+
+After adding your domain, you need to update your DNS settings. Blox provides the records you need to add:
+
+### CNAME record
+
+| Type | Name | Value |
+|------|------|-------|
+| CNAME | `landing` (or your subdomain) | `ssl.blox.page` |
+
+If you're using the root domain (apex), you may need to use your DNS provider's CNAME flattening feature, as not all providers support CNAME records on root domains.
+
+### TXT record (if required)
+
+Some configurations require a TXT record for SSL certificate verification. If needed, Blox displays the record details:
+
+| Type | Name | Value |
+|------|------|-------|
+| TXT | Provided by Blox | Provided by Blox |
+
+## Verifying your domain
+
+After updating DNS:
+
+1. Return to the Domains section in settings
+2. Click **Verify** to check the configuration
+3. Blox confirms whether DNS is correctly configured
+
+DNS changes can take time to propagate. If verification fails, wait a few minutes and try again.
+
+## Verification status
+
+Your domain shows one of these statuses:
+
+| Status | Meaning |
+|--------|---------|
+| Pending | Domain added, awaiting DNS configuration |
+| Verifying | Checking DNS and provisioning SSL certificate |
+| Verified | Domain is active and ready to use |
+| Failed | Configuration issue detected |
+
+Once verified, SSL certificates are automatically provisioned and your pages are accessible at your custom domain.
+
+## Using your custom domain
+
+After verification, your pages are available at:
+
+```
+https://yourdomain.com/page-slug
+```
+
+The default `yourbrand.blox.page` URLs continue to work as well.
+
+## Updating published pages
+
+When you add or verify a custom domain, published pages show "unpublished changes" because their URLs have changed. Republish your pages to update them with the new domain configuration.
+
+## Removing a custom domain
+
+To remove your custom domain:
+
+1. Open the Domains section in settings
+2. Click the delete button next to your domain
+3. Confirm the removal
+
+Blox automatically republishes all pages to revert to the default `blox.page` domain.
+
+## Cookie sharing
+
+Custom domains enable cookie sharing across subdomains. This is useful if you want to track visitors across multiple subdomains on your domain.
+
+For example, if your custom domain is `landing.example.com`, cookies can be shared with `www.example.com` for cross-domain tracking.
+
+## SSL certificates
+
+SSL certificates are automatically provisioned for verified custom domains. Blox handles:
+
+- Certificate issuance
+- Automatic renewal
+- HTTPS enforcement
+
+All traffic to your custom domain uses HTTPS by default.
+
+## Troubleshooting
+
+### Domain stuck in "Verifying"
+
+- Double-check your DNS records match exactly what Blox specified
+- Wait for DNS propagation (can take up to 48 hours, though usually faster)
+- Try clicking Verify again after waiting
+
+### SSL certificate errors
+
+- Ensure the CNAME record points to `ssl.blox.page`
+- Check that no conflicting records exist for the same subdomain
+- Contact support if issues persist after 24 hours
+
+### Pages not loading
+
+- Verify your pages are published (not just the domain)
+- Check that the page slug in the URL is correct
+- Ensure the domain status shows "Verified"

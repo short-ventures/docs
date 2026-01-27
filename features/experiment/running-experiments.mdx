@@ -1,0 +1,135 @@
+---
+title: Running Experiments
+description: Set up and run A/B tests to optimize your landing pages
+---
+
+# Running Experiments
+
+Experiments let you test different variants of your page to see which performs best. By splitting traffic between variants and measuring conversions, you can make data-driven decisions about your landing pages.
+
+## Creating an experiment
+
+1. Open your page in the editor
+2. Navigate to the **Experiments** panel
+3. Click **Create experiment**
+4. Configure your experiment settings:
+   - **Name**: A descriptive title for the experiment
+   - **Hypothesis**: What you're testing and expect to happen
+   - **Variants**: Which variants to include in the test
+   - **Goals**: What conversions to measure
+   - **Delivery**: When to run and how to end
+
+## Selecting variants
+
+Choose which variants to include in your experiment. You need at least two variants—typically your control (default) and one or more challengers.
+
+Each variant gets a traffic weight that determines what percentage of visitors see it:
+
+| Variant | Weight | Traffic |
+|---------|--------|---------|
+| Control | 50 | 50% |
+| New headline | 50 | 50% |
+
+Adjust weights by entering new values or using the slider. Weights automatically normalize to percentages.
+
+## Setting conversion goals
+
+Choose what you want to measure. You can set:
+
+- **Primary goal**: The main metric for determining a winner
+- **Secondary goals**: Additional metrics to track (up to 3)
+
+Goal types include:
+- Form submissions
+- Link clicks
+- Scroll depth
+- Time on page
+- External conversions (tracked from other pages)
+
+Create goals in your brand settings before adding them to experiments.
+
+## Delivery settings
+
+Configure when and how your experiment runs:
+
+### Start time
+
+- **Immediately**: Start when you publish
+- **Scheduled**: Choose a specific start date and time
+
+### End condition
+
+- **Run until significance**: Automatically complete when a winner is detected
+- **Run for duration**: End after a specific number of days
+
+### Auto-select winner
+
+Enable this option to automatically set the winning variant as your default when the experiment reaches statistical significance.
+
+## Starting your experiment
+
+After configuring your experiment:
+
+1. Review all settings
+2. Click **Start experiment**
+3. Publish your page to make the experiment live
+
+Traffic splitting begins immediately after publishing.
+
+## Experiment status
+
+Experiments progress through these stages:
+
+| Status | Description |
+|--------|-------------|
+| Draft | Configuration in progress, not running |
+| Scheduled | Start time set for the future |
+| Running | Actively collecting data |
+| Paused | Temporarily stopped |
+| Completed | Finished with or without a winner |
+
+## Monitoring results
+
+While your experiment runs, the overview panel shows:
+
+- **Day counter**: How long the experiment has been running
+- **Sessions**: Total sessions per variant
+- **Conversions**: Goal completions per variant
+- **Conversion rate**: Percentage of visitors who converted
+- **Probability to be best**: Statistical confidence each variant is the winner
+
+Results update as new data comes in.
+
+## Statistical significance
+
+Blox uses Bayesian statistics to calculate the probability each variant is the best performer. When one variant reaches 95% probability, it's considered statistically significant.
+
+For reliable results, experiments need:
+- At least 100 visitors per variant
+- A minimum of 14 days running (for auto-completion)
+
+## Pausing and resuming
+
+You can pause a running experiment:
+
+1. Click **Pause** in the experiment controls
+2. Traffic stops splitting—all visitors see the control
+3. Click **Resume** to continue the experiment
+
+<Warning>
+Pausing creates a gap in your data, which is noted in integrity warnings. Try to avoid pausing unless necessary.
+</Warning>
+
+## Completing an experiment
+
+Experiments end when:
+
+- **Manual completion**: You click "Complete" and optionally select a winner
+- **Auto-completion**: Statistical significance is reached (if enabled)
+- **Duration ends**: The scheduled end date arrives
+
+When completed, you can choose to set the winning variant as your new default.
+
+## One experiment at a time
+
+Each page can only run one experiment at a time. This ensures clean data and prevents interactions between tests. Complete or stop the current experiment before starting a new one.

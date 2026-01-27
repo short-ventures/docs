@@ -1,0 +1,103 @@
+---
+title: Deploying Pages
+description: Publish your landing pages to make them live
+---
+
+# Deploying Pages
+
+When your page is ready for visitors, you publish it to make it live. Publishing deploys your page to Blox's global edge network, making it accessible at your configured URL.
+
+## Publishing a page
+
+1. Click the **Publish** button in the editor toolbar
+2. Review the publish popover showing your page URL
+3. Click **Publish** to deploy
+
+The page deploys within seconds. Once complete, your page is live and accessible to visitors.
+
+## What gets published
+
+When you publish, Blox deploys:
+
+- All active variants
+- Current experiment configuration
+- Traffic allocation settings
+- Any custom code blocks enabled for your brand
+
+Everything is packaged together so your experiments and tracking work correctly.
+
+## Viewing your published page
+
+After publishing, click the URL in the publish popover to open your live page. The URL follows this pattern:
+
+- **Default domain**: `yourbrand.blox.page/page-slug`
+- **Custom domain**: `yourdomain.com/page-slug`
+
+## Unpublished changes
+
+After you make edits to a published page, you'll see an "unpublished changes" indicator. This means the live version differs from what you see in the editor.
+
+To update the live page with your changes:
+
+1. Click the **Publish** button (now labeled **Update**)
+2. Confirm the update
+
+The updated version deploys and replaces the previous version.
+
+## Publishing status
+
+The publish button shows the current status:
+
+| Status | Meaning |
+|--------|---------|
+| Publish | Page has never been published |
+| Update | Published page has unpublished changes |
+| Publishing... | Deployment in progress |
+| Published | Live version matches editor version |
+
+## Who published
+
+The publish popover shows when the page was last published and who published it. This helps teams track deployment history.
+
+## Unpublishing a page
+
+To take a page offline:
+
+1. Click the publish button to open the popover
+2. Click **Unpublish**
+3. Confirm the action
+
+The page is removed from the edge network and returns a 404 error to visitors. You can republish at any time to bring it back online.
+
+## How publishing works
+
+Behind the scenes, publishing:
+
+1. Validates your page has required content
+2. Packages all variants and configuration
+3. Deploys to Cloudflare's global edge network
+4. Purges any cached versions
+5. Updates the page status in real time
+
+The edge deployment means your page loads quickly for visitors anywhere in the world.
+
+## Notifications
+
+When a page is published or unpublished, team members receive email notifications. This keeps everyone informed about what's live.
+
+## Publishing and experiments
+
+If you have an experiment configured, publishing includes the experiment settings:
+
+- Which variants are in the experiment
+- Traffic allocation percentages
+- Experiment status (scheduled, running, paused)
+
+Changes to experiment settings require republishing to take effect.
+
+## Best practices
+
+- **Preview before publishing**: Check your page in preview mode first
+- **Test on mobile**: Verify the page works on different screen sizes
+- **Publish during low traffic**: Major updates are less risky during quiet periods
+- **Communicate with your team**: Let others know when you're publishing changes

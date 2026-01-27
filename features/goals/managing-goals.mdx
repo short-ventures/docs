@@ -1,0 +1,134 @@
+---
+title: Managing Goals
+description: Create and manage conversion goals for your landing pages
+---
+
+# Managing Goals
+
+Goals track the actions you want visitors to take on your landing pages. By defining goals, you can measure conversion rates and optimize your pages through experimentation.
+
+## Types of goals
+
+Blox supports two categories of goals:
+
+### Behavioral goals
+
+Track actions that happen on your landing page:
+
+| Event type | What it tracks |
+|------------|----------------|
+| Form submission | Visitor submits any form |
+| Link click | Visitor clicks a link |
+| Scroll position | Visitor scrolls to a percentage of the page (25%, 50%, 75%, 100%) |
+| Time on page | Visitor stays on the page for a specified duration |
+
+### External goals
+
+Track conversions that happen outside your landing page, like purchases on your main website. These require adding a tracking script to the external page.
+
+## Creating a goal
+
+1. Open your brand settings
+2. Navigate to the **Goals** section
+3. Click **Create goal**
+4. Choose the goal type (behavioral or external)
+5. Configure the goal settings
+6. Save
+
+### Behavioral goal settings
+
+For behavioral goals, select the event type and configure any options:
+
+- **Form submission**: No additional configuration needed
+- **Link click**: No additional configuration needed
+- **Scroll position**: Choose the threshold (25%, 50%, 75%, or 100%)
+- **Time on page**: Enter the duration in seconds
+
+### External goal settings
+
+For external goals:
+
+1. Enter a name for the goal
+2. Enter an event name (used in the tracking code)
+3. Save to get your tracking code snippet
+
+## Using goals in experiments
+
+Goals become most valuable when connected to experiments:
+
+1. Create your experiment
+2. Add a primary goal (the main metric you're optimizing)
+3. Optionally add up to 3 secondary goals
+4. Start the experiment
+
+The experiment tracks conversions for each goal by variant, letting you see which variant performs best.
+
+## Viewing goal performance
+
+Each goal shows:
+
+- **Total conversions**: How many times the goal was achieved
+- **Created date**: When the goal was set up
+
+When used in experiments, you'll see:
+
+- Conversions per variant
+- Conversion rate per variant
+- Statistical significance
+
+## Editing goals
+
+To modify a goal:
+
+1. Find the goal in your goals list
+2. Click to edit
+3. Update the name, event type, or configuration
+4. Save changes
+
+<Note>
+Changing a goal's configuration may affect how it matches future events. Past conversions are not recalculated.
+</Note>
+
+## Archiving goals
+
+If a goal is no longer needed but has historical data you want to preserve:
+
+1. Open the goal
+2. Click **Archive**
+3. Confirm the action
+
+Archived goals don't appear in goal selectors but their data remains in completed experiments.
+
+## Deleting goals
+
+To permanently remove a goal:
+
+1. Find the goal in your goals list
+2. Click the delete button
+3. Confirm the deletion
+
+<Warning>
+You cannot delete a goal that's currently used in an active experiment. Remove it from the experiment first.
+</Warning>
+
+## Goal matching
+
+Blox automatically matches visitor actions to your goals:
+
+- **Form submissions**: Any form submit event matches a form submission goal
+- **Link clicks**: Clicks on anchor (`<a>`) elements match link click goals
+- **Scroll position**: Reaching the threshold percentage matches scroll goals
+- **Time on page**: Staying for the specified duration matches time goals
+
+Matching happens in real time as visitors interact with your pages.
+
+## Deduplication
+
+Each visitor can only convert once per goal. If a visitor submits a form multiple times, it counts as one conversion. This prevents inflated metrics and matches how most marketing tools work.
+
+## Best practices
+
+- **Name goals clearly**: Use descriptive names like "Contact form submission" or "Reached bottom of page"
+- **Start simple**: Begin with one primary goal before adding secondary metrics
+- **Match goals to intent**: Choose goals that indicate genuine visitor interest, not just any interaction
+- **Use scroll and time carefully**: These can be too easy to achieve—set meaningful thresholds

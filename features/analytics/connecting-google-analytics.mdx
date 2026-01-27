@@ -1,0 +1,147 @@
+---
+title: Connecting Google Analytics
+description: Set up GA4 and Google Tag Manager with your landing pages
+---
+
+# Connecting Google Analytics
+
+Blox has built-in analytics, but you can also connect Google Analytics 4 (GA4) or Google Tag Manager (GTM) to track your landing pages alongside your other properties.
+
+## Adding your GA4 Measurement ID
+
+1. Open your brand settings
+2. Navigate to the **Tracking** section
+3. Enter your GA4 Measurement ID (format: `G-XXXXXXXXXX`)
+4. Save your settings
+
+### Finding your Measurement ID
+
+In Google Analytics:
+
+1. Go to **Admin** (gear icon)
+2. Select your property
+3. Click **Data Streams**
+4. Select your web stream
+5. Copy the **Measurement ID**
+
+## Adding your GTM Container ID
+
+If you use Google Tag Manager:
+
+1. Open your brand settings
+2. Navigate to the **Tracking** section
+3. Enter your GTM Container ID (format: `GTM-XXXXXXX`)
+4. Save your settings
+
+### Finding your Container ID
+
+In Google Tag Manager:
+
+1. Open your container
+2. Click the container ID in the header (starts with GTM-)
+3. Copy the ID
+
+## Implementation
+
+After adding your tracking IDs, you need to add the actual tracking scripts using custom code:
+
+### GA4 Script
+
+Add this as a custom code block with placement "End of head":
+
+```html
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+```
+
+Replace `G-XXXXXXXXXX` with your actual Measurement ID.
+
+### GTM Script
+
+Add this as a custom code block with placement "Start of head":
+
+```html
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+```
+
+And add this as a custom code block with placement "Start of body":
+
+```html
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+```
+
+Replace `GTM-XXXXXXX` with your actual Container ID.
+
+## What gets tracked
+
+With GA4 or GTM configured, you can track:
+
+- Page views
+- User engagement
+- Custom events you configure in GTM
+- E-commerce transactions (with additional setup)
+- Cross-domain tracking (with configuration)
+
+## Using GA4 alongside Blox analytics
+
+Blox's built-in analytics and GA4 work independently. You might use:
+
+- **Blox analytics**: For experiment-specific metrics and conversion tracking
+- **GA4**: For broader marketing analytics and integration with other Google tools
+
+There's no conflict between them—both can run simultaneously.
+
+## Verifying your setup
+
+After adding tracking:
+
+1. Publish your page
+2. Visit the page in a new browser or incognito window
+3. Check GA4 Realtime reports to see your visit
+4. Or use GTM Preview mode to verify tags fire
+
+## Enhanced measurement
+
+GA4's enhanced measurement automatically tracks:
+
+- Scrolls
+- Outbound clicks
+- Site search
+- Video engagement
+- File downloads
+
+Enable these in your GA4 Data Stream settings for additional insights.
+
+## Custom events with GTM
+
+Use GTM to track custom events:
+
+1. Create a trigger for the action you want to track (click, form submit, etc.)
+2. Create a GA4 Event tag that fires on that trigger
+3. Test in Preview mode
+4. Publish your GTM container
+
+This lets you track specific interactions beyond what Blox captures by default.
+
+## Privacy and consent
+
+If you're in a region with consent requirements (EU, UK, California):
+
+- Configure GA4's consent mode
+- Use a cookie consent banner (add via custom code)
+- Consider GTM's consent-aware triggers
+
+Blox provides the mechanism to add these scripts, but you're responsible for compliance.

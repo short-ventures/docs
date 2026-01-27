@@ -1,0 +1,98 @@
+---
+title: Managing Variants
+description: Edit, duplicate, archive, and organize your page variants
+---
+
+# Managing Variants
+
+Once you have multiple variants, you'll need to manage them over time. This includes editing, duplicating, archiving, and deciding which variant serves as your control.
+
+## The variant menu
+
+Each variant has a dropdown menu in its toolbar with these options:
+
+- **Rename**: Change the variant's name
+- **Duplicate**: Create a copy of this variant
+- **Set as control**: Make this the default variant
+- **Remove**: Archive or delete the variant
+
+## Editing variants
+
+To edit a specific variant:
+
+1. Click the focus button to isolate it
+2. Use the AI chat or visual editor to make changes
+3. Changes are saved automatically
+
+When editing with AI, make sure the correct variant is focused. The AI works on whichever variant you have selected.
+
+## Duplicating variants
+
+Duplicate a variant when you want to create a new version based on an existing one:
+
+1. Open the variant menu
+2. Click **Duplicate**
+3. The new variant appears with a default name
+4. Rename it to describe what you'll change
+
+This is faster than creating a new variant and manually copying content.
+
+## Setting the control variant
+
+The control variant is your baseline—the version shown when no experiment is running. To change it:
+
+1. Open the variant menu on the variant you want as control
+2. Click **Set as control**
+
+The previous control becomes a regular variant. Only one variant can be the control at a time.
+
+## Removing variants
+
+When you no longer need a variant:
+
+1. Open the variant menu
+2. Click **Remove**
+3. Confirm the action
+
+<Warning>
+You cannot remove a variant that's part of a running experiment. End or pause the experiment first.
+</Warning>
+
+Removed variants are archived rather than permanently deleted. This preserves your experiment history and allows recovery if needed.
+
+## Variant limits
+
+Each page can have up to 3 active variants. This limit exists because:
+
+- Experiments need sufficient traffic per variant for statistical significance
+- Too many variants make it harder to analyze results
+- Simpler tests tend to produce clearer insights
+
+If you need to test more variations, consider running sequential experiments or testing larger changes that combine multiple elements.
+
+## Version history
+
+Blox tracks the history of changes to each variant's code. This includes:
+
+- Who made the change
+- When the change was made
+- What triggered the change (AI edit, manual edit, publish)
+
+This history helps you understand how variants evolved and revert if needed.
+
+## Variants and publishing
+
+When you publish a page, all active variants are published together. The published version includes:
+
+- Each variant's current code
+- Experiment configuration (if any)
+- Traffic allocation settings
+
+After publishing, the "unpublished changes" indicator shows whether any variants have been modified since the last publish.
+
+## Best practices
+
+- **Keep variants focused**: Test one significant change at a time for clear results
+- **Name variants descriptively**: Make it obvious what each variant tests
+- **Archive old variants**: Remove variants from completed experiments to stay organized
+- **Document your hypothesis**: Note what you expect each variant to achieve

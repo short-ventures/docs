@@ -1,0 +1,156 @@
+---
+title: Traffic Analytics
+description: Monitor visitor traffic and engagement on your landing pages
+---
+
+# Traffic Analytics
+
+Blox includes built-in analytics that track visitors, sessions, and engagement on your landing pages. View these metrics in your page's analytics panel.
+
+## Dashboard overview
+
+The analytics dashboard shows key metrics for your page:
+
+- **Live sessions**: Visitors currently on your page
+- **Page views**: Total page loads
+- **Unique visitors**: Distinct people who visited
+- **Bounce rate**: Percentage of visitors who left without interacting
+- **Interaction rate**: Percentage of visitors who clicked, scrolled, or engaged
+
+## Visitor tracking
+
+Blox tracks visitors using first-party cookies:
+
+- **Visitor ID**: Persistent identifier (1-year duration)
+- **Session ID**: Identifies a single browsing session
+- **Variant**: Which page variant the visitor saw
+- **Experiment**: Which experiment they're part of (if any)
+
+This enables accurate counting of unique visitors and return visits.
+
+## Engagement metrics
+
+Beyond page views, Blox tracks how visitors interact:
+
+### Clicks
+
+Tracked on links, buttons, and elements with `data-track` attributes. Each click records:
+
+- What was clicked (element type, text, URL)
+- When it happened
+- Which variant the visitor was viewing
+
+### Scroll depth
+
+Blox records how far visitors scroll:
+
+- 25%, 50%, 75%, and 100% milestones
+- Used for scroll-based conversion goals
+- Indicates content engagement
+
+### Time on page
+
+Measured when visitors leave or navigate away:
+
+- Total time spent viewing the page
+- Whether they interacted during that time
+- Used for time-based conversion goals
+
+## Breakdowns
+
+The dashboard includes breakdowns by:
+
+### Device type
+
+- Desktop
+- Tablet
+- Mobile
+
+Based on screen width to categorize visitors by device.
+
+### Geography
+
+Top countries where your visitors are located, using Cloudflare's geolocation data.
+
+### Traffic sources
+
+Where visitors came from:
+
+- Direct traffic
+- Search engines
+- Social media
+- Referral sites
+- Campaign links (UTM parameters)
+
+## Attribution
+
+Blox captures UTM parameters and other tracking identifiers:
+
+- `utm_source`
+- `utm_medium`
+- `utm_campaign`
+- `utm_term`
+- `utm_content`
+- `gclid` (Google Ads)
+- `fbclid` (Facebook)
+- `ref` (generic referral)
+
+These appear in attribution reports and are associated with conversions.
+
+## Variant analytics
+
+When you have multiple variants, see metrics broken down by variant:
+
+- Page views per variant
+- Unique visitors per variant
+- Bounce rate per variant
+- Conversion rate per variant
+
+This helps you understand performance differences even without a formal experiment.
+
+## Time series
+
+View metrics over time with the timeseries chart:
+
+- Daily or hourly granularity
+- Compare different date ranges
+- Identify traffic patterns and anomalies
+
+Use the date picker to select your analysis period.
+
+## Real-time updates
+
+Analytics update continuously as new data arrives. The dashboard shows:
+
+- Current live sessions
+- Recent visitor activity
+- Up-to-date totals
+
+Refresh the page or check back to see the latest numbers.
+
+## Data retention
+
+Analytics data is retained for the lifetime of your account. Historical data remains available for:
+
+- Long-term trend analysis
+- Comparing current vs. past performance
+- Audit and compliance purposes
+
+## Export
+
+Currently, analytics data is available through the dashboard. For integrations or external analysis, use:
+
+- Google Analytics connection for additional export options
+- Form data export for submission-level details
+- API access (contact support for enterprise needs)
+
+## Privacy
+
+Blox analytics are first-party and privacy-focused:
+
+- No cross-site tracking
+- Data stays in your account
+- Visitor IDs are pseudonymous (not tied to personal identity)
+- Compliant with common privacy frameworks when used appropriately
+
+You remain responsible for having appropriate privacy policies and consent mechanisms.
