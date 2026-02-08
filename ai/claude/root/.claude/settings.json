@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl:*)",
+      "Bash(pnpm:*)",
+      "Bash(git:*)",
+      "Bash(gh:*)",
+      "Bash(cat:*)",
+      "Bash(xargs:*)",
+      "Bash(bundle:*)",
+      "Bash(bin/rails:*)",
+      "Bash(grep:*)",
+      "WebSearch",
+      "Bash(mkdir:*)",
+      "Bash(pnpm tsc:*)",
+      "Bash(wc:*)",
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "Bash(ruby:*)"
+    ]
+  }
+}
