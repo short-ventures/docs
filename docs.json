@@ -6,9 +6,9 @@
     "default": "dark"
   },
   "colors": {
-    "primary": "#016EF5",
-    "light": "#016EF5",
-    "dark": "#016EF5"
+    "primary": "#D5EF40",
+    "light": "#D5EF40",
+    "dark": "#D5EF40"
   },
   "background": {
     "color": {
